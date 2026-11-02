@@ -1,0 +1,33 @@
+Understanding HTML Tags, Elements and Attributes
+
+1. HTML Tag
+
+A tag is a keyword enclosed within angle brackets.
+<p>
+
+
+2. HTML Element
+
+An element generally consists of an opening tag, content and a closing tag.
+<p>Hello World</p>
+
+
+Here:
+- <p> → Opening tag
+- Hello World → Content
+- </p> → Closing tag
+3. HTML Attribute
+
+Attributes provide additional information about an HTML element.
+<a href="https://www.google.com">Google</a>
+
+
+Here:
+- a → Anchor tag
+- href → Attribute
+- https://www.google.com → Attribute value
+- Google → Visible link text
+
+
+
+So Element can be simply defined as Tag + Attribute + Content
