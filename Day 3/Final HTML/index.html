@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-color: burlywood;
+        }
+        #head{
+            display: flex;
+            justify-content: center;
+        }
+        .navg{
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+        #prod{
+            position: relative;
+            left: 450px;
+            bottom: 200px;
+        }
+        table,td,tr,th{
+            border: 2px solid black;
+            border-collapse: collapse;
+        }
+        #promo{
+            position: relative;
+            left: 150px;
+            bottom: 200px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav id="head">
+        <h1><b>Welcome to E-Kart</b></h1>
+        </nav>
+        <br>
+        <nav class="navg" id="exist">
+            <a href="./login.html">Login</a>
+            <a href="./products.html">Products</a>
+            <a id="contact" href="./contact.html">Contact</a>
+        </nav>
+        <br>
+        <nav class="navg" id="new">
+            <a href="./register.html">New User -- Register</a>
+        </nav>
+        <hr>
+    </header>
+    <main>
+    <section id="about">
+    <h2>Welcome to E-Kart</h2>
+    <p>
+        <strong>E-Kart</strong> is your one-stop online shopping destination for top-quality electronics, trendy fashion, and daily essentials. Founded with the mission to make shopping effortless, accessible, and affordable, we connect millions of customers with the products they love at unbeatable prices.
+    </p>
+    <p>
+        Enjoy seamless navigation, secure payment options, speedy doorstep delivery, and dedicated 24/7 customer support. Whether you are upgrading your workspace with the latest gadgets or refreshing your wardrobe, E-Kart brings the best brands right to your fingertips.
+    </p>
+    </section>
+        <section>
+        <h2><i>Our Products:</i></h2>
+        <ol>
+            <li>Fashion</li>
+            <ul>
+            <li>Kids Wear</li>
+            <li>Mens Fashion</li>
+            <li>Womens Dress</li>
+            </ul>
+            
+            <li>Gadjets</li>
+            <ul>
+            <li>Home Appliances</li>
+            <li>Laptop,Phones</li>
+            <li>Machinaries</li>
+            </ul>
+        </ol>
+        <img id="prod" height="200px" src="./image.png" alt="Prod" title="Products">
+        </section>
+        <section>
+        <h3 id="promo"><mark>Our Promo</mark></h3>
+        <iframe id="promo" width="560" height="315" src="https://www.youtube.com/embed/pMmqff3oaO8?si=itHVRnBjEWzxdjcj" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </section>
+        <br>
+        <section>
+            <table>
+    <thead>
+        <tr>
+            <th colspan="3">
+                Product Catalog
+            </th>
+        </tr>
+        <tr>
+            <th>Product Id</th>
+            <th>Product Name</th>
+            <th>Price</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>F101</td>
+            <td>Men's Denim Jacket</td>
+            <td>₹2,499</td>
+        </tr>
+        <tr>
+            <td>F102</td>
+            <td>Women's Floral Summer Dress</td>
+            <td>₹1,799</td>
+        </tr>
+        <tr>
+            <td>F103</td>
+            <td>Leather Sneakers</td>
+            <td>₹3,299</td>
+        </tr>
+        <tr>
+            <td>F104</td>
+            <td>Cotton Polo T-Shirt</td>
+            <td>₹899</td>
+        </tr>
+        <tr>
+            <td>E201</td>
+            <td>Wireless Bluetooth Earbuds</td>
+            <td>₹2,999</td>
+        </tr>
+        <tr>
+            <td>E202</td>
+            <td>Smart Watch</td>
+            <td>₹4,999</td>
+        </tr>
+        <tr>
+            <td>E203</td>
+            <td>Portable Power Bank 20000mAh</td>
+            <td>₹1,799</td>
+        </tr>
+        <tr>
+            <td>E204</td>
+            <td>4K Smart LED TV 43"</td>
+            <td>₹29,999</td>
+        </tr>
+    </tbody>
+    <tfoot>
+
+    </tfoot>
+</table>
+        </section>
+    </main>
+    <footer>
+        <br>
+        <hr>
+        <a href="#contact">Contact US</a>
+    </footer>
+</body>
+</html>
