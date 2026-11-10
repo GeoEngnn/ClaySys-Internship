@@ -14,23 +14,37 @@ body{
     
 }
 .price{
-    display: inline-block;
-    background-color: lightpink;
     font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     text-decoration: underline;
     width: 200px;
     margin: 0 auto;
-    border: 2px dotted red;
     padding: 12px 3px 140px 1px;
 
 }
 
-.phones{
-    box-sizing: border-box;
+.product{
+    background-color: blueviolet;
+}
+
+#sam{
+    text-indent: 20px;
+    transform: translate(-50%, -50%);
+}
+.phone{
+    /* position: fixed; */
+    bottom: 2px;
+}
+
+.out{
     width: 200px;
-    border: 2px solid black;
-    padding: 45px;
-    display: inline block;
-    margin: 50px;
-    background-color: beige;
+    background-color: blue;
+    position: absolute; z-index: 10;
+    top: 50px; left: 50px; height: 150px;
+    
+}
+.in{
+    width: 12.5em;
+    background-color: white;
+    position: absolute; z-index: 1;
+    top: 100px; left: 100px; height: 150px;
 }
