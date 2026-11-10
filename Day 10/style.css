@@ -1,0 +1,36 @@
+#main{
+    color: darkblue;
+    
+}
+.para{
+    font-size: 18px;
+}
+body{
+    background-color: rgba(155, 25, 000 ,0.5);
+}
+.product{
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    
+    
+}
+.price{
+    display: inline-block;
+    background-color: lightpink;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    text-decoration: underline;
+    width: 200px;
+    margin: 0 auto;
+    border: 2px dotted red;
+    padding: 12px 3px 140px 1px;
+
+}
+
+.phones{
+    box-sizing: border-box;
+    width: 200px;
+    border: 2px solid black;
+    padding: 45px;
+    display: inline block;
+    margin: 50px;
+    background-color: beige;
+}
