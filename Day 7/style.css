@@ -1,0 +1,42 @@
+.product {
+    position: relative;
+    width: 300px;
+}
+
+.product img {
+    width: 100%;
+    position: absolute;
+}
+
+.discount {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: red;
+    color: white;
+    padding: 8px;
+}
+
+.chat-button {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 15px;
+    background-color: green;
+    color: white;
+}
+#but{
+    background-color: green;
+}
+
+.cart-button {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    padding: 15px 25px;
+    background-color: rgb(17, 15, 11);
+    color: white;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
