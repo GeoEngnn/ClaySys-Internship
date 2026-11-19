@@ -9,8 +9,11 @@
 <body>
     <aside class="sidebar">
         <div class="brand">
-            <h2>AppForms</h2>
-            <p>Training Portal</p>
+            <span class="forms-logo">AF</span>
+            <div class="brand-text">
+                <h2>AppForms</h2>
+                <p>Training Portal</p>
+            </div>
         </div>
         <nav aria-label="Main navigation">
             <ul>
@@ -57,117 +60,155 @@
             </div>
         </section>
         <section class="progress-section">
-            <ol class="progress-steps">
-                <li>Request details</li>
-                <li>Review</li>
-                <li>Confirmation</li>
-            </ol>
+            <ul class="progress-steps">
+                <li><span>Request details</span></li>
+                <li><span>Review</span></li>
+                <li><span>Confirmation</span></li>
+            </ul>
         </section>
+        
         <div class="request-layout">
             <section class="request-form-section">
-    
-                <div>
-                    <span>STEP 1 OF 3</span>
+
+                <div class="form-section-heading">
+                    <span class="steps">STEP 1 OF 3</span>
                     <span>* Required fields</span>
                 </div>
+
                 <h3>Request details</h3>
-                <form action="" id="request-form" class="request-form">
 
+                <form id="request-form" class="request-form">
+
+                <!-- Request Title -->
                     <div class="form-group">
-                        <label for="request-title">Request title *</label>
-                        <input type="text" id="request-title" name="title" required placeholder="Eg: Damaged laptop Screen">
-                    </div>
-
-
-                    <div class="form-group">
-                        <label for="description">Description *</label>
-                        <textarea name="description" id="description" required placeholder="Explain what happened , when it started and how work is affected"></textarea>
-                    </div>
-
-                    <div class="form-group">
-
-                        <label for="category">Category *</label>
-                        <select name="category" id="category" required>
-                            <option value="">Select a Category</option>
-                            <option value="hardware">Hardware</option>
-                            <option value="software">Software</option>
-                            <option value="access">Access</option>
-                            <option value="network">Network</option>
-                        </select>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="asset-tag">Asset Tag</label>
-                        <input type="text" id="asset-tag"
-                       name="assetTag" placeholder="Example:LAP -1189">
+                        <label for="request-title">Request Title *</label>
+                        <input
+                        type="text"
+                        id="request-title"
+                        name="title"
+                        placeholder="Eg: Damaged laptop screen"
+                        required>
                     </div>
                     
-                    <!-- For grouping form elements  -->
-                    <fieldset class="form-group"> 
-                        
-                        <!-- provides a heading for the grouped form controls. -->
+                <!-- Description -->
+                    <div class="form-group">
+                        <label for="description">Description *</label>
+                        <textarea
+                        id="description"
+                        name="description"
+                        placeholder="Explain what happened, when it started and how work is affected"
+                        required>
+                        </textarea>
+                    </div>
 
-                        <legend>Business Impact *</legend>
 
-                        <label>
-                            <input name="impact" value="individual" type="radio" required>Individual affected
-                        </label>
-                        <label>
-                            <input name="impact" value="team" type="radio">Team affected
-                        </label>
-                        <label>
-                            <input name="impact" value="work-stopped" type="radio">Work stopped
-                        </label>
-                    </fieldset>
 
-                    <fieldset class="form-group">
-                        <legend>Urgency *</legend>
+                <!-- Category and Asset Tag -->
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="category">Category *</label>
+                            <select name="category" id="category" required>
+                                <option value="">Select a Category</option>
+                                <option value="hardware">Hardware</option>
+                                <option value="software">Software</option>
+                                <option value="access">Access</option>
+                                <option value="network">Network</option>
+                            </select>
+                        </div>
 
-                        <label>
-                            <input type="radio" name="urgency"
-                            value="routine" required>
+                        <div class="form-group">
+                            <label for="asset-tag">Asset Tag</label>
+                            <input type="text" id="asset-tag"
+                            name="assetTag" placeholder="Example: LAP-1189">
+                        </div>
+                    </div>
+
+
+            <!-- Business Impact and Urgency -->
+                    <div class="form-row">
+
+                        <fieldset class="form-group">
+                            <legend>Business Impact *</legend>
+
+                            <label>
+                            <input name="impact" value="individual" type="radio" required>
+                            Individual affected
+                            </label>
+
+                            <label>
+                            <input name="impact" value="team" type="radio">
+                            Team affected
+                            </label>
+
+                            <label>
+                            <input name="impact" value="work-stopped" type="radio">
+                            Work stopped
+                            </label>
+                        </fieldset>
+
+                        <fieldset class="form-group">
+                            <legend>Urgency *</legend>
+
+                            <label>
+                            <input type="radio" name="urgency" value="routine" required>
                             Routine
-                        </label>
+                            </label>
 
-                        <label>
-                            <input type="radio" name="urgency"
-                           value="needed-soon">
+                            <label>
+                            <input type="radio" name="urgency" value="needed-soon">
                             Needed soon
-                        </label>
+                            </label>
 
-                        <label>
-                            <input type="radio" name="urgency"
-                           value="immediate">
+                            <label>
+                            <input type="radio" name="urgency" value="immediate">
                             Immediate
-                        </label>
-                    </fieldset>
+                            </label>
+                        </fieldset>
 
-                    <div class="form-group">
-                        <label for="priority">Suggested priority</label>
-                            <input type="text" id="priority"
-                            name="priority">
                     </div>
-                    <div class="form-group">
+
+
+        <!-- Priority and Target Date -->
+                    <div class="form-row">
+
+                        <div class="form-group">
+                            <label for="priority">Suggested priority</label>
+                            <input type="text" id="priority" name="priority" readonly>
+                        </div>
+
+                        <div class="form-group">
                         <label for="target-date">Target date</label>
-                        <input type="date" id="target-date"
-                       name="targetDate">
+                        <input type="date" id="target-date" name="targetDate" readonly>
+                        </div>
+
                     </div>
+
+
+        <!-- Form Actions -->
                     <div class="form-actions">
                         <button id="save-draft" type="button">Save Draft</button>
-                        <button id="reset-form" type="reset">Reset</button>
-                        <button id="submit-request" type="submit">Submit Request</button>
+
+                        <div class="form-actions-right">
+                            <button id="reset-form" type="reset">Reset</button>
+                            <button id="submit-request" type="submit">Submit Request</button>
+                        </div>
                     </div>
+
                 </form>
             </section>
-
                         <!-- LIVE PREVIEW      -->
             <aside class="right-panel">
 
+                
                 <section class="live-preview">
 
                     <div class="preview-heading">
-                        <h3>LIVE PREVIEW</h3>
-                        <p>Request summary</p>
+                        <div>
+                            <h3>LIVE PREVIEW</h3>
+                            <p>Request summary</p>
+                        </div>
+
+                        <span class="draft-badge">DRAFT</span>
                     </div>
 
                     <div class="preview-details">
@@ -177,18 +218,14 @@
                             <p id="preview-title">Untitled Request</p>
                         </div>
 
-                        <div class="preview-row">
+                        <div class="preview-item">
+                            <small>Category</small>
+                            <p id="preview-category">Not selected</p>
+                        </div>
 
-                            <div class="preview-item">
-                                <small>Category</small>
-                                <p id="preview-category">Not selected</p>
-                            </div>
-
-                            <div class="preview-item">
-                                <small>Asset</small>
-                                <p id="preview-asset">Not provided</p>
-                            </div>
-
+                        <div class="preview-item">
+                            <small>Asset</small>
+                            <p id="preview-asset">Not provided</p>
                         </div>
 
                         <div class="preview-item">
@@ -205,17 +242,28 @@
 
                 </section>
 
+            <!-- Before Submit Section -->
+               
                 <section class="submission-guidance">
-                    <h3>BEFORE YOU SUBMIT</h3>
 
-                    <ul>
-                        <li>Provide a clear request title.</li>
-                        <li>Explain the issue in detail.</li>
-                        <li>Select the correct category.</li>
-                        <li>Choose the appropriate business impact and urgency.</li>
-                        <li>Review the suggested priority and target date.</li>
-                    </ul>
+                    <div class="guidance-icon">
+                    ?
+                    </div>
+
+                    <div class="guidance-content">
+                        <h3>BEFORE YOU SUBMIT</h3>
+
+                        <ul>
+                            <li>Provide a clear request title.</li>
+                            <li>Explain the issue in detail.</li>
+                            <li>Select the correct category.</li>
+                            <li>Choose the appropriate business impact and urgency.</li>
+                            <li>Review the suggested priority and target date.</li>
+                        </ul>
+                    </div>
+
                 </section>
+ 
 
             </aside>
             <!-- LIVE PREVIEW      -->

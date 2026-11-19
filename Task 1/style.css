@@ -40,13 +40,25 @@ select {
     flex-direction: column;
 }
 
-.brand h2 {
-    font-size: 25px;
-    margin-bottom: 3px;
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }
 
-.brand p {
-    color: #aab6c8;
+.brand-text {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+.brand-text h2 {
+    margin: 0;
+    font-size: 20px;
+}
+
+.brand-text p {
+    margin: 0;
     font-size: 13px;
 }
 
@@ -84,6 +96,20 @@ select {
     margin-right: 15px;
 }
 
+.forms-logo{
+    width: 50px;
+    height: 50px;
+    background-color: #157c71;
+    padding: 5px;
+    border-radius: 7px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    flex-shrink: 0;
+}
+
+
 .environment {
     margin-top: auto; 
     /* In a flex-box layout margin-top: auto; 
@@ -113,7 +139,7 @@ select {
 .environment-text {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
 }
 
 .status-dot {
@@ -121,7 +147,7 @@ select {
     height: 8px;
     background: #22c55e;
     border-radius: 50%;
-    flex-shrink: 1;
+    flex-shrink: 0;
 }
 
 
@@ -144,10 +170,11 @@ select {
 }
 
 .header-title small {
-    color: #718096;
+    color: #054b38;
     font-size: 11px;
     letter-spacing: 1px;
     font-weight: bold;
+    font-family: sans-serif ;
 }
 
 .header-title h1 {
@@ -201,7 +228,7 @@ main {
     margin-bottom: 20px;
 }
 
-.breadcrumb a:last-child {
+.breadcrumb a:hover {
     color: #315b9c;
     font-weight: bold;
 }
@@ -231,18 +258,25 @@ main {
     justify-content: space-between;
     list-style: none;
     counter-reset: step;
+    /* initializes a counter for assigning numbers rather than manually doing it   */
+    padding: 0;
+    margin: 0;
 }
 
 .progress-steps li {
     counter-increment: step;
+    /* incrementing the counter value */
     display: flex;
     align-items: center;
     gap: 10px;
     color: #718096;
     font-size: 14px;
+    white-space: nowrap;
+    flex: 1;
 }
-
-.progress-steps li::before {
+/* li::before : Creates content before the <li> content */
+.progress-steps li::before
+{
     content: counter(step);
     width: 28px;
     height: 28px;
@@ -255,14 +289,23 @@ main {
     font-weight: bold;
 }
 
-.progress-steps li:first-child {
-    color: #315b9c;
+/* Hover on the text */
+.progress-steps li:hover span {
     font-weight: bold;
 }
 
-.progress-steps li:first-child::before {
-    background-color: #315b9c;
+/* Hover on the number */
+.progress-steps li:hover::before {
+    background-color: #0b5c45;
     color: white;
+}
+
+.progress-steps li:not(:last-child)::after {
+    content: "";
+    height: 2px;
+    background-color: #dce2e9;
+    flex: 1;
+    margin: 0 12px;
 }
 
 .request-layout {
@@ -294,6 +337,10 @@ main {
     margin: 15px 0 22px;
 }
 
+.steps{
+    color: #157c71;
+    font-weight: bold;
+}
 
 .request-form {
     display: flex;
@@ -361,11 +408,27 @@ main {
     accent-color: #315b9c;
 }
 
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+}
+
+@media (max-width: 600px) {
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+
+    .form-actions {
+        flex-wrap: wrap;
+    }
+}
 
 .form-actions {
     display: flex;
+    justify-content: space-between;
+    align-items: center;
     gap: 12px;
-    flex-wrap: wrap;
     margin-top: 8px;
 }
 
@@ -403,7 +466,13 @@ main {
     background-color: #244779;
 }
 
-
+@media (max-width: 450px) {
+    .form-actions-right {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+}
 
 .right-panel {
     display: flex;
@@ -411,51 +480,96 @@ main {
     gap: 20px;
 }
 
+
 .preview-heading {
-    margin-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
 }
 
-.preview-heading h3,
-.submission-guidance h3 {
-    font-size: 14px;
+.preview-heading h3 {
+    font-size: 12px;
     letter-spacing: 0.5px;
     margin-bottom: 5px;
+    color:#157c71;
 }
 
 .preview-heading p {
-    color: #718096;
-    font-size: 13px;
+    font-size: 15px;
+    font-weight: bold;
+    margin: 0;
+}
+
+.draft-badge {
+    background-color: #e5edf5;
+    color: #334155;
+    font-size: 10px;
+    font-weight: bold;
+    padding: 5px 9px;
+    border-radius: 12px;
 }
 
 .preview-details {
     display: flex;
     flex-direction: column;
-    gap: 18px;
+}
+
+.preview-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 0;
+    border-bottom: 1px solid #e4e8ef;
+}
+
+.preview-item:last-child {
+    border-bottom: none;
 }
 
 .preview-item small {
     color: #718096;
     font-size: 11px;
     font-weight: bold;
-    display: block;
-    margin-bottom: 4px;
 }
 
 .preview-item p {
-    font-size: 14px;
-    font-weight: bold;
+    font-size: 13px;
+    font-weight: 600;
+    margin: 0;
+    text-align: right;
     overflow-wrap: anywhere;
 }
 
-.preview-row {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 12px;
+.submission-guidance {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 15px;
+}
+
+.guidance-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background-color: #e5edf5;
+    color: #315b9c;
+    font-weight: bold;
+    flex-shrink: 0;
 }
 
 .submission-guidance ul {
     padding-left: 20px;
     margin-top: 15px;
+}
+
+.guidance-content {
+    display: flex;
+    flex-direction: column;
 }
 
 .submission-guidance li {
