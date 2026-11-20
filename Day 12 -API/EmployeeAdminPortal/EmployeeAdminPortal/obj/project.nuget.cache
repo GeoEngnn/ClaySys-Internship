@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "M6D89AK5wjY=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\GEO THOMAS\\OneDrive\\Desktop\\ClaySys-Internship\\Day 12 -API\\EmployeeAdminPortal\\EmployeeAdminPortal\\EmployeeAdminPortal.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\GEO THOMAS\\.nuget\\packages\\microsoft.aspnetcore.openapi\\10.0.14\\microsoft.aspnetcore.openapi.10.0.14.nupkg.sha512",
+    "C:\\Users\\GEO THOMAS\\.nuget\\packages\\microsoft.openapi\\2.12.2\\microsoft.openapi.2.12.2.nupkg.sha512"
+  ],
+  "logs": []
+}
