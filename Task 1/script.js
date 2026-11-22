@@ -20,7 +20,7 @@ const requestsTableBody = document.getElementById("requests-table-body");
 
 
                 // Validation logic when submitted 
-requestForm.addEventListener("submit", function(event) {
+requestForm.addEventListener("submit", async function(event) {
 
     event.preventDefault();
 
@@ -32,31 +32,42 @@ requestForm.addEventListener("submit", function(event) {
         return;
     }
 
-    // checks your HTML constraints
-
-    if (!requestForm.checkValidity()) {      
+    if (!requestForm.checkValidity()) {
         requestForm.reportValidity();
         return;
     }
+
     updatePreview();
 
     const requestData = getFormData();
 
-    // Retrieve existing requests
-    let requests = JSON.parse(localStorage.getItem("serviceRequests")) || [];
+    try {
+        const response = await fetch("http://localhost:5273/api/requests", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(requestData)
+        });
 
-    // Add the new request
-    requests.push(requestData);
+        if (!response.ok) {
+            throw new Error("Failed to submit request");
+        }
 
-    // Store the updated array
-    localStorage.setItem("serviceRequests", JSON.stringify(requests));
+        await response.json();
 
-    displayRequests();
+        alert("Request submitted successfully!");
 
-    alert("Request submitted successfully!");
+        requestForm.reset();
 
-    requestForm.reset();
-    updatePreview();
+        updatePreview();
+
+        await displayRequests();
+
+    } catch (error) {
+        console.error("Submission error:", error);
+        alert("Unable to submit request. Please try again.");
+    }
 
 });
 
@@ -66,43 +77,61 @@ function getFormData() {
     const urgency = document.querySelector('input[name="urgency"]:checked');
 
     return {
-        id: Date.now(),
         title: titleInput.value.trim(),
         description: descriptionInput.value.trim(),
         category: categoryInput.value,
-        assetTag: assetTagInput.value.trim(),
+        assetTag: assetTagInput.value.trim() || null,
         impact: impact ? impact.value : "",
         urgency: urgency ? urgency.value : "",
         priority: priorityInput.value,
-        targetDate: targetDateInput.value,
+        targetDate: targetDateInput.value || null,
         status: "Submitted"
     };
 }
 
                 // Table Creation
 
-function displayRequests() {
+async function displayRequests() {
 
-    const requests = JSON.parse(localStorage.getItem("serviceRequests")) || [];
+    try {
+        const response = await fetch("http://localhost:5273/api/requests");
 
-    requestsTableBody.innerHTML = "";  // Removing the current table body content and 
+        if (!response.ok) {
+            throw new Error("Failed to retrieve requests");
+        }
 
-    requests.forEach(function(request) {
+        const requests = await response.json();
 
-        const row = document.createElement("tr");
+        requestsTableBody.innerHTML = "";
 
-        row.innerHTML = `
-            <td>${request.id}</td>
-            <td>${request.title}</td>
-            <td>${request.category}</td>
-            <td>${request.priority}</td>
-            <td>${request.targetDate}</td>
-            <td>${request.status}</td>
-        `;
+        requests.forEach(function(request) {
 
-        requestsTableBody.appendChild(row);
+            const row = document.createElement("tr");
 
-    });
+            const values = [
+                request.id,
+                request.title,
+                request.category,
+                request.priority,
+                request.targetDate
+                    ? request.targetDate.substring(0, 10)
+                    : "",
+                request.status
+            ];
+
+            values.forEach(function(value) {
+                const cell = document.createElement("td");
+                cell.textContent = value ?? "";
+                row.appendChild(cell);
+            });
+
+            requestsTableBody.appendChild(row);
+
+        });
+
+    } catch (error) {
+        console.error("Retrieval error:", error);
+    }
 }
 displayRequests();
 
