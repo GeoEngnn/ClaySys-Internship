@@ -1,0 +1,53 @@
+bin	--- Compiled application output
+When you build or run your application, .NET generates files such as:
+- Compiled assemblies (.dll)
+- Runtime configuration files
+- Dependency information
+
+
+
+
+
+obj	--- Intermediate build files
+The obj folder contains temporary or intermediate files generated during the build process.
+These files help .NET prepare your project for compilation.
+
+
+
+Properties	--- Development launch settings
+The launchSettings.json file defines development launch settings, such as:
+- Which URL your application runs on
+- HTTP and HTTPS ports
+- Environment variables
+- Launch profiles
+
+.csproj	--- Project configuration and dependencies
+It contains information such as:
+- Target .NET version
+- Project dependencies
+- Package references
+- Build settings
+
+
+appsettings.json	--- General application configuration
+This file stores application configuration values.
+
+
+appsettings.Development.json --- Development-specific configuration
+
+Program.cs	--- Application entry point and startup configuration
+It typically contains:
+- Application configuration
+- Dependency injection setup
+- Middleware configuration
+- Routing configuration
+- Application startup
+
+
+
+1. Anatomy of a REST API URL: https://api.example.com/students/101
+Protocol – How the client communicates with the server.
+
+Domain (Host) – Where the server is located.
+
+Resource (Path) – Which data or functionality the client wants to access.
