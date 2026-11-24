@@ -46,4 +46,6 @@ app.MapGet("/api/requests", async (AppDbContext db) =>
 
 app.MapGet("/", () => "Service Request API is running!");
 
+app.MapGet("/api", () => "You are on the API route page (❁´◡`❁)");
+
 app.Run();

@@ -37,6 +37,9 @@ requestForm.addEventListener("submit", async function(event) {
     if (!requestForm.checkValidity()) {
         requestForm.reportValidity();
         return;
+    // Checks whether the form satisfies the validation rules defined in your HTML.
+    // If the form is invalid, this method asks the browser to display its built-in validation message.
+
     }
 
     updatePreview();
@@ -105,25 +108,24 @@ function getFormData() {
 
 function updatePreview() {
 
-    // Request Title
+// || is logical 'OR' So if the left side is truthy, JavaScript returns it and never evaluates the right side.
+
     previewTitle.textContent =
         titleInput.value.trim() || "Untitled Request";
 
-    // Category
+    
     previewCategory.textContent =
         categoryInput.value || "Not selected";
 
-    // Asset Tag
+
     previewAsset.textContent =
         assetTagInput.value.trim() || "Not provided";
 
-    // Priority
     const priority = calculatePriority();
 
     priorityInput.value = priority;
     previewPriority.textContent = priority;
 
-    // Target Date
     previewDate.textContent =
         targetDateInput.value || "Pending";
 }
