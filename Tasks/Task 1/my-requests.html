@@ -1,0 +1,122 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Requests | Service Request Portal</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+
+    <aside class="sidebar">
+        <div class="brand">
+            <span class="forms-logo">AF</span>
+            <div class="brand-text">
+                <h2>AppForms</h2>
+                <p>Training Portal</p>
+            </div>
+        </div>
+
+        <nav aria-label="Main navigation">
+            <ul>
+                <li>
+                    <a href="./index.html">
+                        <span class="symbol-left-panel">+</span>
+                        New Request
+                    </a>
+                </li>
+
+                <li>
+                    <a href="./my-requests.html">
+                        <span class="symbol-left-panel">&#9993;</span>
+                        My Requests
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#">
+                        <span class="symbol-left-panel">&#10003;</span>
+                        Approval Queue
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#">
+                        <span class="symbol-left-panel">&#128196;</span>
+                        Reports
+                    </a>
+                </li>
+            </ul>
+        </nav>
+
+        <div class="environment">
+            <span class="status-dot"></span>
+            <div class="environment-text">
+                <p>Training Environment</p>
+                <small>Fictional data only</small>
+            </div>
+        </div>
+    </aside>
+
+    <div class="app-container">
+
+        <header class="header">
+            <div class="header-title">
+                <small>EMPLOYEE SERVICES</small>
+                <h1>Service Request Portal</h1>
+            </div>
+
+            <div class="user-profile">
+                <span class="user-initials">MR</span>
+                <div>
+                    <p>Maya Rao</p>
+                    <small>Requester</small>
+                </div>
+            </div>
+        </header>
+
+        <main>
+
+            <section class="page-intro">
+                <nav class="breadcrumb" aria-label="Breadcrumb">
+                    <a href="./index.html">Home</a>
+                    <span>/</span>
+                    <a href="./my-requests.html">My Requests</a>
+                </nav>
+
+                <div class="page-heading">
+                    <h2>My Requests</h2>
+                    <p>View and track the service requests you have submitted.</p>
+                </div>
+            </section>
+
+            <section class="recent-requests">
+                <div class="recent-requests-heading">
+                    <h3>All Service Requests</h3>
+                </div>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th scope="col">Request ID</th>
+                            <th scope="col">Request</th>
+                            <th scope="col">Category</th>
+                            <th scope="col">Priority</th>
+                            <th scope="col">Status</th>
+                            <th scope="col">Target Date</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="my-requests-table-body">
+                        <!-- Requests will be inserted here by JavaScript -->
+                    </tbody>
+                </table>
+            </section>
+
+        </main>
+    </div>
+
+    <script src="./my-requests.js"></script>
+</body>
+</html>

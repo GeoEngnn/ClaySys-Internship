@@ -20,9 +20,11 @@ const requestsTableBody = document.getElementById("requests-table-body");
 
 
                 // Validation logic when submitted 
+
 requestForm.addEventListener("submit", async function(event) {
 
     event.preventDefault();
+    //normally the page reloads and sends data to the server
 
     const impact = document.querySelector('input[name="impact"]:checked');
     const urgency = document.querySelector('input[name="urgency"]:checked');
@@ -41,6 +43,7 @@ requestForm.addEventListener("submit", async function(event) {
 
     const requestData = getFormData();
 
+    // (POST)
     try {
         const response = await fetch("http://localhost:5273/api/requests", {
             method: "POST",
@@ -54,22 +57,31 @@ requestForm.addEventListener("submit", async function(event) {
             throw new Error("Failed to submit request");
         }
 
-        await response.json();
+        const result = await response.json();
 
-        alert("Request submitted successfully!");
-
-        requestForm.reset();
-
-        updatePreview();
-
-        await displayRequests();
+        console.log("Request submitted:", result);
 
     } catch (error) {
         console.error("Submission error:", error);
         alert("Unable to submit request. Please try again.");
+        return;
+    }
+
+    // POST succeeded
+    alert("Request submitted successfully!");
+
+    requestForm.reset();
+    updatePreview();
+
+    // To display the recent request after we do the Post (GET)
+    try {
+        await displayRequests();
+    } catch (error) {
+        console.error("Table refresh error:", error);
     }
 
 });
+
 
 function getFormData() {
 
@@ -88,54 +100,6 @@ function getFormData() {
         status: "Submitted"
     };
 }
-
-                // Table Creation
-
-async function displayRequests() {
-
-    try {
-        const response = await fetch("http://localhost:5273/api/requests");
-
-        if (!response.ok) {
-            throw new Error("Failed to retrieve requests");
-        }
-
-        const requests = await response.json();
-
-        requestsTableBody.innerHTML = "";
-
-        requests.forEach(function(request) {
-
-            const row = document.createElement("tr");
-
-            const values = [
-                request.id,
-                request.title,
-                request.category,
-                request.priority,
-                request.targetDate
-                    ? request.targetDate.substring(0, 10)
-                    : "",
-                request.status
-            ];
-
-            values.forEach(function(value) {
-                const cell = document.createElement("td");
-                cell.textContent = value ?? "";
-                row.appendChild(cell);
-            });
-
-            requestsTableBody.appendChild(row);
-
-        });
-
-    } catch (error) {
-        console.error("Retrieval error:", error);
-    }
-}
-displayRequests();
-
-
 
                     // Implement Live Preview
 
@@ -207,3 +171,6 @@ document.querySelectorAll('input[name="impact"]').forEach(function(radio) {
 document.querySelectorAll('input[name="urgency"]').forEach(function(radio) {
     radio.addEventListener("change", updatePreview);
 });
+
+
+
